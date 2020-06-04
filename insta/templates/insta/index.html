@@ -1,9 +1,10 @@
 {% extends 'insta/base.html' %}
 
 {% block content %}
+
 <div class="container">
 
-    <a href="{%url 'upload'%}" class="btn btn-outline-info btn-sm">upload</a>
+    
 
 
     {% for image in images %}
@@ -27,7 +28,7 @@
                 <div class="card-footer">
                     <a href="{% url 'likes' image.id%}" class="btn btn-sm btn-outline-info">{{image.likes}} Likes</a>
 
-                    <a href="{% url 'newComment' image.id%}" class="btn btn-outline-info btn-sm">Add comments</a>
+                    <a href="{% url 'newComment' image.id%}" class="btn btn-outline-info btn-sm"><i class="far fa-comment insta-button"></i></a>
                     <a href="{% url 'comments' image.id %}" class="btn btn-outline-info btn-sm">view comments</a>
                 </div>
             </div>

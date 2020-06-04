@@ -10,18 +10,53 @@
     {%  block styles %}
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" /> 
-     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
+        integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
     {% bootstrap_css %}
-    
-    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    <link rel="stylesheet" href="{% static 'css/main.css'%}">
     {% endblock %}
-    
-    <title>Jess-Instagram</title>
+    <title>Instagram</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand navbar-light  ">
+        <span><img src="{{user.profile.profile_photo.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></span>
+        <a class="navbar-brand logo" href="/" class="monte">Instagram</a>
+        
+        
+
+       <input class="form-control search-bar " type="search" placeholder="Search" aria-label="Search">
+        <ul class="navbar-nav mr-auto nav-right-items ">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/">
+                    <i class="fas fa-home nav-icons"><span class="sr-only">(current)</span></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">
+                    <i class="far fa-compass nav-icons"></i>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="#">
+                    <i class="far fa-heart nav-icons"></i>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{%url 'profile'%}" class="prof">
+                    <img src="/static/images/file.png" alt="profile" height="20" class="round">
+                </a>
+            </li>
+            <li>
+                <a href="{%url 'upload'%}" class="btn btn-outline-info btn-sm">upload</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/logout" tabindex="-1" aria-disabled="true">logout </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/"><i class="fab fa-4x fa-instagram"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,7 +78,7 @@
                 
             </ul>
             <span><img src="{{user.profile.profile_photo.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></span>
-            <!--  -->
+            
             {% endif %}
             
             
@@ -52,7 +87,8 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_user">
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
-    </nav>
+    </nav> -->
+    
 
     <div class="container-fluid">
         {% block content %}
