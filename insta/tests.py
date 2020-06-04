@@ -1,5 +1,6 @@
 from django.test import TestCase
 from . models import *
+from django.db import models
 
 class ImageTestClass(TestCase):
     '''
