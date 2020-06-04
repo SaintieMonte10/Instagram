@@ -3,13 +3,13 @@ from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 from vote.models import VoteModel
 
-# Create your models here.
+#create your models here
 class Image(models.Model):
     image = models.ImageField(upload_to='images/')
     image_name = models.CharField(max_length=50)
     image_caption = models.CharField(max_length=50)
     likes = models.PositiveIntegerField(default=0)
-    ser = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
     
     def save_image(self):
         self.save()
@@ -32,7 +32,24 @@ class Image(models.Model):
     def __str__(self):
         
         return self.image_name
-
+    
+class Comments(models.Model):
+    comment = models.CharField(max_length=100,blank=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    image = models.ForeignKey(Image,on_delete=models.CASCADE)
+    date_posted = models.DateTimeField(auto_now_add=True)
+    
+    @classmethod
+    def get_comments(cls,id):
+        comments = cls.objects.filter(image__id=id)
+        return comments
+    
+    def save_comment(self):
+        self.save()
+    
+    def __str__(self):
+        
+        return self.comment
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='images')
     bio = models.TextField(max_length=100)
@@ -57,5 +74,3 @@ class Profile(models.Model):
         new_bio_object = cls.objects.get(bio = new_bio)
         new_bio = new_bio_object.bio
         return new_bio
-
-
