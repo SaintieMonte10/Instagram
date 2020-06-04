@@ -9,7 +9,7 @@ class Image(models.Model):
     image_name = models.CharField(max_length=50)
     image_caption = models.CharField(max_length=50)
     likes = models.PositiveIntegerField(default=0)
-    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    # user = models.ForeignKey(User,on_delete=models.CASCADE)
     
     def save_image(self):
         self.save()
@@ -54,8 +54,6 @@ class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='images')
     bio = models.TextField(max_length=100)
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
-    
-
     
     
     def __str__(self):
