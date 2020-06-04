@@ -9,7 +9,7 @@ class Image(models.Model):
     image_name = models.CharField(max_length=50)
     image_caption = models.CharField(max_length=50)
     likes = models.PositiveIntegerField(default=0)
-    # user = models.ForeignKey(User,on_delete=models.CASCADE)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     
     def save_image(self):
         self.save()
