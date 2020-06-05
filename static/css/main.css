@@ -346,6 +346,11 @@ body{
     width: 50%;
 }
 
+.caption{
+    color: black;
+    font-weight: bolder;
+}
+
 .follow-suggestion:hover{
     text-decoration: none;
     color: #00ADF1;

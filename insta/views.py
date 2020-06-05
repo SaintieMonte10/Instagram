@@ -102,3 +102,5 @@ def search_user(request):
         message = "You haven't searched for any term "
         return render(request, 'insta/search_results.html', {"message": message})
     
+   
+    

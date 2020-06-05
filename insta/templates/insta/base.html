@@ -20,12 +20,19 @@
 
 <body>
     <nav class="navbar navbar-expand navbar-light  ">
-        <span><img src="{{user.profile.profile_photo.url}}" alt="" style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></span>
+        <span><img src="{{user.profile.profile_photo.url}}" alt=""
+                style="border-radius: 50%; width:50px; height:50px; border-color: brown; border-width: 1px;"></span>
         <a class="navbar-brand logo" href="/" class="monte">Instagram</a>
-        
-        
+        <div>
+            <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'search_user'%}">
+                <input class="form-control mr-sm-1" type="search" placeholder="Search" aria-label="Search"
+                    name="search_user">
+                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
+            </form>
 
-       <input class="form-control search-bar " type="search" placeholder="Search" aria-label="Search">
+        </div>
+
+
         <ul class="navbar-nav mr-auto nav-right-items ">
 
             <li class="nav-item">
@@ -49,13 +56,14 @@
                 </a>
             </li>
             <li>
-                <a href="{%url 'upload'%}" class="btn btn-outline-info btn-sm">upload</a>
+                <a href="{%url 'upload'%}" class="btn btn-outline-info btn-sm">post</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="/logout" tabindex="-1" aria-disabled="true">logout </a>
             </li>
         </ul>
     </nav>
+   
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="/"><i class="fab fa-4x fa-instagram"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -88,7 +96,7 @@
             <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
         </form>
     </nav> -->
-    
+
 
     <div class="container-fluid">
         {% block content %}
