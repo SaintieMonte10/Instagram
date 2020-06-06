@@ -335,6 +335,9 @@ body{
     border-radius: 2%;
     width: 70%;  
 }
+.capt{
+    font-weight: bolder;
+}
 .follow-suggestion{
     
     float: right;

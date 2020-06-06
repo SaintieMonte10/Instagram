@@ -33,7 +33,9 @@
                     <a href="{% url 'newComment' image.id%}" class="btn btn-outline-info btn-sm"><i class="far fa-comment insta-button"></i></a>
                     <a href="{% url 'comments' image.id %}" class="btn btn-outline-info btn-sm">view comments</a>
                 </div>
+                <p class="mr-auto" class="capt">{{image.image_caption}}</p>
             </div>
+            
 
 
 
